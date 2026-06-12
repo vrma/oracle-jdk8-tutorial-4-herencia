@@ -51,6 +51,10 @@ public class App {
 		
 		Empleado empleado4 = new Empleado("Jakelin Elisabeth", "Avila", "Paredes", 
 				Genero.MUJER, new BigDecimal(4500.50), Departamento.INFORMATICA);
+		
+		// Mostrar el horario de comida del empleado4
+		
+		empleado4.muestraHorarioDeComida();
 
 	}
 }
