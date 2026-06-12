@@ -16,6 +16,67 @@
 
 package com.example;
 
-public class Empleado extends Persona {
+import java.math.BigDecimal;
 
+public class Empleado extends Persona {
+	
+	private BigDecimal salario;
+	private Departamento departamento;
+
+	public Empleado() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Empleado(String nombre, String primerApellido, 
+			String segundoApellido, Genero genero) {
+		super(nombre, primerApellido, segundoApellido, genero);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Empleado(BigDecimal salario, Departamento departamento) {
+		super();
+		this.salario = salario;
+		this.departamento = departamento;
+	}
+	
+	// Generar un constructor que permita instanciar un empleado 
+	// con los campos de Persona y los propios del Empleado
+	
+	public Empleado(String nombre, String primerApellido, 
+			String segundoApellido, Genero genero, BigDecimal salario,
+			Departamento departamento) {
+		super(nombre, primerApellido, segundoApellido, genero);
+		this.salario = salario;
+		this.departamento = departamento;
+	}
+	
+	
+	public BigDecimal getSalario() {
+		return salario;
+	}
+
+
+
+	public void setSalario(BigDecimal salario) {
+		this.salario = salario;
+	}
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+
+	@Override
+	public String toString() {
+		return "Empleado [salario=" + salario + ", departamento=" + departamento + ", getNombre()=" + getNombre()
+				+ ", getPrimerApellido()=" + getPrimerApellido() + ", getSegundoApellido()=" + getSegundoApellido()
+				+ ", getGenero()=" + getGenero() + "]";
+	}
+
+	
+	
 }
