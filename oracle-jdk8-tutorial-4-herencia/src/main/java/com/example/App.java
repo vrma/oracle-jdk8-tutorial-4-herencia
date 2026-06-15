@@ -22,7 +22,24 @@ public class App {
 		 * pudiesemos pasarle todas las propiedades de la clase Persona
 		 */
 
-		Empleado empleado2 = new Empleado("Elida", "Almonte", "Garcia", Genero.MUJER);
+		// Empleado empleado2 = new Empleado("Elida", "Almonte", "Garcia", Genero.MUJER);
+		
+		/* El objeto anterior que se le asigna a la variable empleado2, no se puede
+		 * construir actualmente tal y como fue construido cuando existia el constructor
+		 * que recibia los 4 argumentos que recibe este constructor, PERO en su 
+		 * lugar tenemos algo mucho, pero mucho, mejor, que es el patron Builder
+		 * que nos permite crear/instanciar cualquier objeto aunque no tengamos 
+		 * el constructor explicitamente, ademas que se hace innecesario suministrar
+		 * los campos de la clase en orden .*/ 
+		
+		Empleado empleado2 = Empleado.builder()
+				.nombre("Elida")
+				.primerApellido("Almonte")
+				.segundoApellido("Garcia")
+				.genero(Genero.MUJER)
+				.salario(new BigDecimal(3500.50))
+				.departamento(Departamento.INFORMATICA)
+				.build();
 
 		Empleado empleado3 = new Empleado(new BigDecimal(2500.25), Departamento.RRHH);
 
@@ -49,12 +66,19 @@ public class App {
 		 */
 		System.out.println(empleado3.toString());
 		
-		Empleado empleado4 = new Empleado("Jakelin Elisabeth", "Avila", "Paredes", 
-				Genero.MUJER, new BigDecimal(4500.50), Departamento.INFORMATICA);
+		// Empleado empleado4 = new Empleado("Jakelin Elisabeth", "Avila", "Paredes", 
+		//		Genero.MUJER, new BigDecimal(4500.50), Departamento.INFORMATICA);
 		
-		// Mostrar el horario de comida del empleado4
+		Empleado empleado4 = Empleado.builder()
+				.nombre("Jakelin Elisabeth")
+				.primerApellido("Avila")
+				.segundoApellido("Paredes")
+				.genero(Genero.MUJER)
+				.salario(new BigDecimal(4500.50))
+				.departamento(Departamento.INFORMATICA)
+				.build();
 		
-		empleado4.muestraHorarioDeComida();
+
 
 	}
 }
